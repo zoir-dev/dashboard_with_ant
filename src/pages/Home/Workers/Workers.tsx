@@ -12,7 +12,7 @@ interface renderProps {
   fio: string,
   hudud: string,
   otryad: string,
-  kpi: number
+  kpi: number,
 }
 
 const Workers = () => {
@@ -23,7 +23,7 @@ const Workers = () => {
       title: 'FIO',
       dataIndex: 'fio',
       key: 'fio',
-      render: (_, b: renderProps) => (
+      render: (_: any, b: renderProps) => (
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <img src="https://picsum.photos/32" alt="" loading="lazy" style={{ borderRadius: '50%' }} />
           <p>{b.fio}</p>
@@ -49,7 +49,7 @@ const Workers = () => {
       title: "Kpi ko'rsatkichi",
       dataIndex: 'kpi',
       key: 'kpi',
-      render: (_, b: renderProps) => (
+      render: (_: any, b: renderProps) => (
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }} >
           <p>{b.kpi}</p>
