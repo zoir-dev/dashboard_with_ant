@@ -1,0 +1,92 @@
+
+.money_div{
+    display: flex;
+    border-radius: 10px;
+    background: #FFF;
+    padding: 24px;
+    box-shadow: 0px 6px 24px 0px rgba(208, 213, 221, 0.20);
+    gap: 24px;
+    width: 100%;
+    .income{
+        width: 100%;
+        padding-right: 24px;
+        border-right: 2px solid #D0D5DD;
+    }
+    .expense{
+        width: 100%;
+        padding-right: 24px;
+        .title span{
+            color: #FF4D4F;
+        }
+        span span{
+            color: #FF4D4F;
+        }
+    }
+    .kpi .title span, span span{
+            color: #7FB519 !important;
+    }
+
+    .title{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        p{
+            color:  #1C1E23;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 150%; /* 24px */
+            letter-spacing: -0.32px;
+        }
+        span{
+            color: #14D934;
+            border-radius: 8px;
+            padding: 9px;
+            font-size: 24px;
+            background: var(--gray-100, #F2F4F7);
+        }
+    }
+    p{
+        color: #1C1E23;
+        text-align: justify;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 150%; 
+        letter-spacing: -0.96px;
+        span{
+            color: #D0D5DD;
+            text-align: justify;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 150%; 
+            letter-spacing: -0.28px;
+        }
+        margin-bottom: 14px;
+    }
+    span{
+        color: #D0D5DD;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: -0.24px;
+        span{
+            color: #14D934;
+        }
+    }
+}
+@media screen and (max-width:1100px){
+    .money_div .expense{
+        padding-right: 0 !important;
+    }
+    
+}
+@media screen and (max-width:768px){
+    .money_div{
+        flex-direction: column;
+        .income{
+            border-right: none;
+            border-bottom: 2px solid #D0D5DD;
+            padding-bottom: 24px;
+            padding-right: 0;
+        }
+    }
+    
+}

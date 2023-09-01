@@ -1,0 +1,47 @@
+.work_info{
+    display: flex;
+    align-items: flex-start;
+    gap: 46px;
+    width: 100%;
+    border-radius: 12px;
+    padding: 20px;
+    background: #FFF;
+    .user_icon{
+        font-size: 100px;
+        color: #667085;
+        padding-left: 60px;
+        padding-top: 60px;
+    }
+    .infos{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
+        width: 100%;
+        .info{
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            p{
+                width: 100%;
+                font-size: 16px;
+                color: #101828;
+            }
+            span{
+                width: 100%;
+                font-size: 16px;
+                color: #667085;
+            }
+        }
+    }
+}
+@media screen and (max-width:900px){
+    .work_info{
+        flex-direction: column;
+        align-items: center;
+        .user_icon{
+            padding: 0;
+            font-size: 80px;
+        }
+    }
+    
+}

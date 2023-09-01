@@ -1,0 +1,16 @@
+.hworks{
+    .title{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            font-size: 24px;
+        }
+        button{
+            background-color: #4623E9;
+        }
+    }
+    .withFilter{
+        width: 100%;
+    }
+}

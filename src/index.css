@@ -1,0 +1,26 @@
+:root {
+  font-family: Mulish,  sans-serif;
+  color: #1C1E23;
+  line-height: normal;
+  font-weight: 400;
+  font-style: normal;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+}
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.scrollDiv{
+  width: 100%;
+  overflow: auto;
+}

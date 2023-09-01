@@ -1,0 +1,117 @@
+.home_left{
+    display: flex;
+    max-width: 280px;
+    height: 100vh;
+    padding: 20px 16px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0; 
+    background:  #FFF;
+    box-shadow: 0px 6px 32px 0px rgba(208, 213, 221, 0.64);
+    span{
+        color:  #98A2B3;
+        font-size: 14px;
+        padding: 0 16px;
+    }
+    .head{
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 100%;
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            img{
+                width: 48px;
+                height: 48px; 
+                object-fit: contain;
+            }
+            h2{
+                color:  #1C1E23;
+                font-size: 24px;
+                font-weight: 700;
+                text-transform: uppercase; 
+            }
+        }
+        
+    }
+    .menus{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        a{
+            text-decoration: none;
+        }
+        .menu{
+            display: flex; 
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 100%;
+            gap: 14px;
+            padding: 10px 16px; 
+            transition: 0.3s ease all;
+            cursor: pointer;
+            span,p{
+                color: #475467;
+                padding: 0;
+                font-size: 18px;
+
+            }
+            &:hover{
+                span,p{
+                    color: #4623E9;
+                }
+            }
+        }
+        .active_menu{
+            background-color: #F7F5FD;
+            span,p{
+                color: #4623E9;
+            }
+        }
+     }
+}
+
+@media screen and (max-width:1300px){
+    .home_left{
+        max-width: 70px;
+        overflow: hidden;
+        align-items: center;
+        h2,p,.navbar_span{
+            display: none;
+        }
+        .menus{
+            max-width: 100%;
+            .menu {
+                justify-content: center;
+            }
+        }
+    }  
+}
+@media screen and (max-width:576px){
+    .home_left{
+        max-width: 100%;
+        overflow: hidden;
+        align-items: flex-start;
+        box-shadow: none;
+        h2,p,.navbar_span{
+            display: flex;
+        }
+        h2{
+            font-size: 18px !important;
+        }
+        img{
+            width: 28px;
+            height: 28px;
+        }
+        .menus{
+            max-width: 100%;
+            .menu {
+                justify-content: flex-start;
+            }
+        }
+    }  
+}

@@ -1,0 +1,30 @@
+.home_div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    background-color: #F2F4F7;
+    .home-right{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 16px 20px;
+        overflow: scroll;
+
+    }
+}
+.ant-drawer .ant-drawer-body{
+    padding: 0 !important;
+}
+@media screen and (max-width:576px){
+    .home_div {
+        .home_navbar{
+            display: none;
+        }
+        .home-right{
+            padding: 16px 5px;
+        }
+    }
+    
+}
