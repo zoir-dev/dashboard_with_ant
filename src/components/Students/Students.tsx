@@ -6,15 +6,22 @@ import { DeleteOutlined, EditOutlined, FilterOutlined, PlusOutlined, SearchOutli
 import { dataSource } from './data'
 import Filter from './Filter/Filter'
 
-const StudentsComponent = () => {
+interface propss {
+    people?: string,
+    columData?: any[],
+    dataSourc?: any[],
+    rowSelect?: boolean,
+    paginate?: boolean
+}
+
+const StudentsComponent = ({ people, columData, dataSourc, rowSelect = true, paginate }: propss) => {
     const [type, setType] = useState('all')
-    const [data, setData] = useState(dataSource)
+    const [data, setData] = useState(dataSourc ? dataSourc : dataSource)
     const [search, setSearch] = useState('')
     const [selectedRows, setSelectedRows] = useState([])
     const [loading, setLoading] = useState(false)
     const [action, setAction] = useState('')
-    const [edit, setEdit] = useState({ key: 0, name: '', email: '', type: '', description: '' })
-    const [tableParams, setTableParams] = useState<TableParams>({
+    const [tableParams, setTableParams] = useState({
         pagination: {
             current: 1,
             pageSize: 10,
@@ -47,7 +54,7 @@ const StudentsComponent = () => {
             title: '',
             dataIndex: 'actions',
             key: 'actions',
-            render: (_, b) => (
+            render: (b: any) => (
                 <div className='actions'>
                     <Button type='primary' onClick={() => editRow(b)
                     }>
@@ -69,14 +76,15 @@ const StudentsComponent = () => {
         });
     }
 
-    const editRow = (e) => {
-        setEdit(e)
+    const editRow = (e: any) => {
+        console.log(e);
+
     }
 
-    const deleteRow = async (e) => {
+    const deleteRow = async (e: any) => {
         setLoading(true)
         await handleRequest()
-        setData(data.filter(d => d.key !== e.key))
+        setData(data.filter((d: any) => d.key !== e.key))
         setLoading(false)
         message.success('Deleted')
         console.log(e)
@@ -93,7 +101,7 @@ const StudentsComponent = () => {
     };
 
     const rowSelection = {
-        onChange: (selectedRows: DataType[]) => {
+        onChange: (selectedRows: any) => {
             setSelectedRows(selectedRows)
 
         },
@@ -105,8 +113,8 @@ const StudentsComponent = () => {
             if (type === 'all') return data
             return data.filter(f => f.type === type)
         } else {
-            if (type === 'all') return data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
-            return data.filter(f => f.type === type).filter(f => f.name.toLowerCase().includes(search.toLowerCase()))
+            if (type === 'all') return data.filter((item: any) => item.name.toLowerCase().includes(search.toLowerCase()));
+            return data.filter(f => f.type === type).filter((f: any) => f.name.toLowerCase().includes(search.toLowerCase()))
         }
 
 
@@ -124,7 +132,7 @@ const StudentsComponent = () => {
 
         await handleRequest()
         selectedRows.forEach(rowKey => {
-            setData(data => data.filter(d => d.key !== rowKey));
+            setData(data => data.filter((d: any) => d.key !== rowKey));
         });
         setSelectedRows([])
         message.success('Deleted')
@@ -135,7 +143,7 @@ const StudentsComponent = () => {
         setAction('')
     }
 
-    const badgeCount = (type) => {
+    const badgeCount = (type: string) => {
         if (type === 'all') {
             return data.length
         } else {
@@ -145,14 +153,14 @@ const StudentsComponent = () => {
 
     return (
         <div className='students_div'>
-            <div className="buttons_div">
+            {!people && <div className="buttons_div">
                 {buttons.map(b => (
                     <Button key={b.type} className={type === b.type ? "active" : ''}
                         onClick={() => setType(b.type)}>
                         {b.name} <span className='badge'>{badgeCount(b.type)}</span>
                     </Button>
                 ))}
-            </div>
+            </div>}
             <div className="scrollDiv">
                 <div className="withFilter" style={{ minWidth: '650px' }}>
 
@@ -161,8 +169,8 @@ const StudentsComponent = () => {
 
                             <div className="title">
                                 <div>
-                                    <h2>Active Students </h2>
-                                    <p>{dataSource.length} students</p>
+                                    <h2>{people ? people : 'Active Students'} </h2>
+                                    <p>{dataSource.length} {people ? 'users' : 'students'}</p>
                                 </div>
                                 <Input suffix={<SearchOutlined />} placeholder='Search by name' value={search}
                                     onChange={(e) => setSearch(e.target.value)} />
@@ -182,11 +190,18 @@ const StudentsComponent = () => {
                                 }
                             </div>
                         </div>
-                        <Table rowSelection={rowSelection} dataSource={filteredData()}
-                            columns={columns} pagination={tableParams.pagination}
-                            onChange={handleTableChange} loading={loading} />
+                        {
+                            rowSelect ?
+                                <Table rowSelection={rowSelection} dataSource={filteredData()}
+                                    columns={columData ? columData : columns} pagination={!paginate ? paginate : tableParams.pagination}
+                                    onChange={handleTableChange} loading={loading} /> :
+                                <Table dataSource={filteredData()}
+                                    columns={columData ? columData : columns} pagination={!paginate ? paginate : tableParams.pagination}
+                                    loading={loading} />
+                        }
+
                     </div>
-                    <Filter action={action} values={edit} setData={setData} handleRequest={handleRequest} />
+                    <Filter action={action} setData={setData} handleRequest={handleRequest} />
                 </div>
             </div>
         </div>

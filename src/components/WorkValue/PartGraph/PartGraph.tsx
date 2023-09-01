@@ -2,7 +2,12 @@ import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import { useState } from 'react'
 import { Tooltip } from 'antd'
 import { partData } from './data'
-const PartGraph = () => {
+
+interface partProps {
+    className?: string
+}
+const PartGraph = ({ className }: partProps) => {
+
     const max_year = 2024
     const [year, setYear] = useState(max_year)
 
@@ -38,7 +43,7 @@ const PartGraph = () => {
     return (
         <div className="scrollDiv">
 
-            <div className="spending">
+            <div className={`spending ${className}`}>
                 <div className="card_title">
                     <p>Иш натижалари самарадорлиги (чорак кесимида)</p>
                     <div className="year-changer">

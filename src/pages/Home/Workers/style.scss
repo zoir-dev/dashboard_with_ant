@@ -1,0 +1,36 @@
+.workers_div{
+    .right_div{
+        gap: 68px;
+        margin-bottom: 24px;
+    }
+}
+@media screen and (max-width:1320px){
+    .workers_div  .right_div{
+        gap: 86px;
+    }
+}
+@media screen and (max-width:1308px){
+    .workers_div  .right_div{
+        gap: 96px;
+    }
+}
+@media screen and (max-width:1296px){
+    .workers_div  .right_div{
+        gap: 68px;
+    }
+}
+@media screen and (max-width:1124px){
+    .workers_div  .right_div{
+        gap: 86px;
+    }
+}
+@media screen and (max-width:1112px){
+    .workers_div  .right_div{
+        gap: 96px;
+    }
+}
+@media screen and (max-width:1100px){
+    .workers_div  .right_div{
+        gap: 24px;
+    }
+}

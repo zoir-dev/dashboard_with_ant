@@ -1,0 +1,30 @@
+.workers{
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--white, #FFF);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .worker_title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span{
+            font-size: 16px;
+            color: #667085;
+        }
+    }
+    .left,.right{
+        width: 100%;
+        padding-right: 37px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .left{
+        border-right: 2px solid #F2F4F7;
+    }
+    .right{
+        padding-left: 37px;
+    }
+}

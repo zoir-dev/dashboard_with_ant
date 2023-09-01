@@ -1,0 +1,37 @@
+.worker_cards{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    .worker_card{
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        padding: 12px 20px;
+        border-radius: 16px;
+        background: var(--white, #FFF);
+        span:first-child{
+            color: #4623E9;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: var(--primary-25, #F7F5FD);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        div{
+            display: flex;
+            flex-direction: column;
+            p{
+                font-size: 24px;
+                font-weight: 600;
+            }
+            span{
+                color: #98A2B3;
+                font-size: 14px;
+            }
+        }
+    }
+
+}

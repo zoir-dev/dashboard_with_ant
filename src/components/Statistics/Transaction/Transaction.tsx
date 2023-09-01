@@ -7,9 +7,8 @@ import second from '../../../assets/2.png'
 import third from '../../../assets/3.png'
 import complete from '../../../assets/complete.png'
 import pending from '../../../assets/pending.png'
-import hold from '../../../assets/hold.png'
 const Transaction = () => {
-    const [time, setTime] = useState()
+    const [time, setTime] = useState<any>()
 
     interface DataType {
         key: React.Key;
@@ -34,7 +33,7 @@ const Transaction = () => {
             title: 'Date',
             dataIndex: 'date',
             sorter: {
-                compare: (a, b) => a.date - b.date,
+                compare: (a, b) => a.date.localeCompare(b.date),
                 multiple: 3,
             },
         },
@@ -42,7 +41,7 @@ const Transaction = () => {
             title: 'Amount',
             dataIndex: 'amount',
             sorter: {
-                compare: (a, b) => a.amount - b.amount,
+                compare: (a, b) => a.amount.localeCompare(b.amount),
                 multiple: 2,
             },
         },
@@ -50,7 +49,7 @@ const Transaction = () => {
             title: 'Status',
             dataIndex: 'status',
             sorter: {
-                compare: (a, b) => a.status - b.status,
+                compare: (a, b) => a.status.name.localeCompare(b.status.name),
                 multiple: 1,
             },
             render: (s) => (

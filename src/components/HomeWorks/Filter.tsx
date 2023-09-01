@@ -1,5 +1,5 @@
 
-const Filter = ({ hide }) => {
+const Filter = ({ hide }: { hide: boolean }) => {
     return (
         <div className={hide ? 'filter_div' : 'hide filter_div'}>
 

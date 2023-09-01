@@ -2,7 +2,10 @@ import { Badge, Breadcrumb, Image, Input } from "antd";
 import { BellOutlined, HomeOutlined, MenuUnfoldOutlined, RightOutlined, SearchOutlined } from "@ant-design/icons";
 import profile_img from '../../assets/profile_img.png'
 import "./style.scss";
-const AppBar = ({ setOpen }) => {
+interface appBarProps {
+  setOpen: (value: boolean) => void
+}
+const AppBar = ({ setOpen }: appBarProps) => {
   return (
     <div className="app-bar">
       <Breadcrumb separator={<RightOutlined style={{ fontSize: '10px' }} />}>

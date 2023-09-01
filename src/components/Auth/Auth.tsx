@@ -5,7 +5,11 @@ import Input from 'antd/es/input/Input'
 import { CloseOutlined } from '@ant-design/icons'
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-const Auth = ({ type }) => {
+
+interface authProps {
+    type: string
+}
+const Auth = ({ type }: authProps) => {
 
 
     const [loading, setLoading] = useState(false)
@@ -19,7 +23,7 @@ const Auth = ({ type }) => {
     }, [navigate])
 
 
-    const [form] = Form.useForm<{ IIV: string, VIIB: string, tuman: string, login: string, password: string }>();
+    const [form] = Form.useForm();
     const VIIB = Form.useWatch('VIIB', form);
     const IVV = Form.useWatch('IVV', form)
     const tuman = Form.useWatch('tuman', form)
@@ -34,7 +38,7 @@ const Auth = ({ type }) => {
             }, 2000);
         });
     }
-    const onFinish = async (values: string) => {
+    const onFinish = async (values: any) => {
         setLoading(true)
         localStorage.setItem('login', values.login)
         await handleRequest()

@@ -63,6 +63,9 @@
             letter-spacing: -0.72px;
         }
     }
+    .workers_graph{
+        margin-top: 0;
+    }
     .colors{
         display: flex;
         flex-direction: column;
@@ -113,6 +116,9 @@
             }
             .six div{
                 background-color: #A1A9FE;
+            }
+            .green div{
+                background-color: #16EF39;
             }
         }
     }

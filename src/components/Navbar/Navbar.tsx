@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Image } from "antd";
 import { BarChartOutlined, LogoutOutlined, ScheduleOutlined, SettingOutlined, TeamOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 import { useLocation, useNavigate } from "react-router-dom";

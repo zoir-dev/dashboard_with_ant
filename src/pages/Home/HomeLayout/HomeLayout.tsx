@@ -2,10 +2,15 @@ import { useNavigate } from "react-router-dom";
 import AppBar from "../../../components/AppBar/AppBar";
 import Navbar from "../../../components/Navbar/Navbar";
 import './style.scss'
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import NavbarDrawr from "../../../components/Navbar/NavbarDrawr";
 
-const HomeLayout = ({ children }) => {
+interface HomeLayoutProps {
+  children: ReactNode;
+}
+
+const HomeLayout: React.FC<HomeLayoutProps> = ({ children }) => {
+
   const [drawer, setDrawer] = useState(false)
   const navigate = useNavigate()
   useEffect(() => {

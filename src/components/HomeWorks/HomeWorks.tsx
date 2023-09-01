@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { data } from './data'
 import Filter from './Filter'
 const HomeWorksComponent = () => {
-    const [hide, setHide] = useState(false)
+    const [hide, setHide] = useState<boolean>(false)
     const buttons = [{ key: 'firstW', label: '1-Vazifa' },
     { key: 'secondW', label: "2-Vazifa" }, { key: 'thirdW', label: '3-Vazifa' },
     { key: 'fourthW', label: "4-Vazifa" }]
@@ -56,11 +56,11 @@ const HomeWorksComponent = () => {
     const filteredData = () => {
         return data
     }
-    const badgeCount = (type) => {
+    const badgeCount = (type: string) => {
         if (type === 'all') {
             return data.length
         } else {
-            return data.filter(f => f.type === type).length
+            return data.filter((f: any) => f.type === type).length
         }
     }
     return (

@@ -2,18 +2,24 @@
 import { Button, Form, Input, Select, message } from 'antd'
 import './style.scss'
 import { useState } from 'react'
-const Filter = ({ action, values, setData, handleRequest }) => {
-  console.log(values);
+
+
+interface propss {
+  action: string,
+  setData: (value: any) => void,
+  handleRequest: () => void
+}
+const Filter = ({ action, setData, handleRequest }: propss) => {
 
   const [loading, setLoading] = useState(false)
 
   const [form] = Form.useForm<{ key: number, name: string, email: string, type: string, description: string }>();
 
-  const onFinish = async (e) => {
+  const onFinish = async (e: any) => {
     if (action === 'add') {
       setLoading(true)
       await handleRequest()
-      setData(prev => [...prev, e])
+      setData((prev: any) => [...prev, e])
       message.success('Added')
       form.resetFields()
       setLoading(false)
@@ -31,7 +37,6 @@ const Filter = ({ action, values, setData, handleRequest }) => {
         scrollToFirstError
         form={form}
         layout='vertical'
-        initialValues={{ key: values?.key || Date.now(), name: values?.name, email: values?.email, type: values?.type, description: values?.description }}
         requiredMark={false}>
         <Form.Item
           name='name'
